@@ -1,0 +1,65 @@
+extends ../layouts/default
+
+block content
+	if enquirySubmitted
+		.jumbotron.text-center
+			h1 Success!
+			if user
+				p Thanks for your enquiry.  We will be back in touch with you soon!
+				
+			else
+				p(style="margin-left: 10vw; margin-right: 10vw;") To see your enquiry, sign in with the username 
+					code demo@keystonejs.com
+					|  and the password 
+					code demo
+					|  then go to the enquiries list.
+				a(href='/keystone/signin').btn.btn-lg.btn-primary Sign In
+	
+	else
+		.page-header
+			a(href='/keystone/enquiries').btn.btn-default.pull-right= user ? 'View Enquiries' : 'Sign in to View Enquiries'
+			h1 Contact
+		.row
+			.col-sm-8
+				form(method='post').form-horizontal
+					input(type='hidden', name='action', value='contact')
+					.form-group(class=validationErrors.name ? 'has-error' : null)
+						label.col-sm-2.text-left.control-label Name
+						.col-sm-10
+							input(type='text' name='name.full' value=formData['name.full'] required placeholder="First Last").form-control
+					.form-group(class=validationErrors.email ? 'has-error' : null)
+						label.col-sm-2.control-label Email
+						.col-sm-10
+							input(type='email' name='email' value=formData.email required placeholder="name@domain.com").form-control
+					.form-group
+						label.col-sm-2.control-label Phone
+						.col-sm-10
+							input(type='text' name='phone' value=formData.phone placeholder='(optional)').form-control
+					.form-group(class=validationErrors.enquiryType ? 'has-error' : null required)
+						label.col-sm-2.control-label Regarding
+						.col-sm-10
+							select(name='enquiryType').form-control
+								option(value='') (required)
+								each type in enquiryTypes
+									option(value=type.value selected=formData.enquiryType === type.value)= type.label
+					.form-group(class=validationErrors.message ? 'has-error' : null)
+						label.col-sm-2.control-label Message
+						.col-sm-10
+							textarea(name='message' placeholder='Leave us a message...' rows=4 required).form-control= formData.message
+					.form-group
+						.col-sm-10.col-sm-offset-2
+							p.help-block Thanks for your interest in the London Firefighters Pipe Band
+							button(type='submit').btn.btn-primary Submit
+			.col-sm-4
+				.panel.panel-default
+					.panel-heading
+						h3.panel-title London Fire Fighters Pipe Band - Quick Links
+					.panel-body Here are some links of interest:
+					.list-group
+						a(href='http://www.ppbso.org/', target='_blank').list-group-item PPBSO
+						a(href='http://www.scottshighland.com/', target='_blank').list-group-item Scott's Highland Services, Ltd
+						a(href='http://collegeofpiping.com/', target='_blank').list-group-item College of Piping 
+						a(href='http://www.bcpipers.org/', target='_blank').list-group-item BC Piping Association
+						a(href='http://www.aspd.ca/', target='_blank').list-group-item Alberta Piping Association
+						a(href='http://www.bbc.co.uk/programmes/b0079g6v', target='_blank').list-group-item BBC Radio Scotland - Pipeline 
+						a(href='https://drive.google.com/drive/folders/0Bwaz6toZYo4SdzlINXRMbVdpTzA', target='_blank').list-group-item Members Google Storage

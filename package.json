@@ -1,0 +1,15 @@
+{
+  "name": "lffpb",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "async": "^1.5.0",
+    "csv": "^0.4.6",
+    "jade": "^1.11.0",
+    "keystone": "^4.0.0-beta.1",
+    "lodash": "^3.10.1"
+  },
+  "scripts": {
+    "start": "node keystone.js"
+  }
+}

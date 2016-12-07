@@ -1,0 +1,103 @@
+extends ../layouts/default
+
+block content
+
+
+	//- div(style="padding-left: 5vw; padding-right: 5vw;").jumbotron
+		h1 London Fire Fighters Pipe Band
+
+	.row
+		.col-sm-12
+
+			#carousel-example-generic.carousel.slide(data-ride='carousel')
+				ol.carousel-indicators
+					li.active(data-target='#carousel-example-generic', data-slide-to='0')
+					|     
+					li(data-target='#carousel-example-generic', data-slide-to='1')
+					|     
+					li(data-target='#carousel-example-generic', data-slide-to='2')
+
+				.carousel-inner
+					.item.active
+						img(src='images/carousel-1.jpg', alt='...')
+						|       
+						.carousel-caption
+							h3 Join the Band
+							p Piper and drummers are welcome
+						|     
+					.item
+						img(src='images/carousel-2.jpg', alt='...')
+						|       
+						.carousel-caption
+							h3 Learn to play Bagpipes or Drums
+						|     
+					.item
+						img(src='images/carousel-1.jpg', alt='...')
+						|       
+						.carousel-caption
+							h3 Book the band for an event
+						|     
+
+				a.left.carousel-control(href='#carousel-example-generic', role='button', data-slide='prev')
+					span.glyphicon.glyphicon-chevron-left
+				|   
+				a.right.carousel-control(href='#carousel-example-generic', role='button', data-slide='next')
+					span.glyphicon.glyphicon-chevron-right
+
+	.row
+		.col-sm-8
+			h3: a(href='/news') Latest News
+
+			p 
+				strong UPCOMING - London Firefighters Pipe Band hosting Robbie Burns night at the Western Fair Carousel Room.  Information and tickets can be found here. 
+
+			hr
+
+			p 
+				strong November 12 - London Firefighters Pipe Band performs at Highlan Gala.  Awarded Grade 5 Band Champion Supreme 
+
+			hr
+			p 
+				strong November 12 - London Firefighters Piper Thomas Helland awarded Grade 5 Light Music Champion Supreme at the PPBSO Highland Gala 
+
+			hr
+			p 
+				strong July 30 - Glengarry Highland Games 2016 : Maxville &nbsp;: Grade Five March Medley
+			hr
+
+
+
+
+
+
+			hr
+			h3: a(href='/gallery') Gallery
+			p Example of how to set up a page that displays multiple image galleries.
+			p Demonstrates usage of single and multi image fields and their resizing methods.
+			p You can sign in using the demo account to create and manage image galleries, and upload additional images
+			hr
+			h3: a(href='/contact') Enquiries
+			p Simple contact form that validates input and logs enquiries to the database.
+			p You can sign in using the demo account to view the submitted enquiries.
+			hr
+
+
+		.col-sm-4
+			.panel.panel-default
+				.panel-heading
+					h3.panel-title: a(href='/burns') Robbie Burns Night - 2017
+				.panel-body
+					p One of London Ontario's biggest Burns celebrations.  Lots of enterntainment.  Come to enjoy the tradition of Robbie Burns and hear some of London Fire Fighters Pipers and Drummers.
+					a(href='/burns').btn.btn-default Tickets
+				
+			.panel.panel-default
+				.panel-heading
+					h3.panel-title: a(href='/shop') LFFPB Merchandice
+				.panel-body
+					p Support the organization with the purchase of LFFPB merchandice.
+					a(href='/shop').btn.btn-default Shop
+	
+	div(style="margin-top: 60px; padding-left: 10vw; padding-right: 10vw;").jumbotron.text-center
+		h2 Learn to Play!
+		p Learn to play the bagpipes or the drums. Get personalised tuition from experienced musicians
+

@@ -1,0 +1,19 @@
+mixin memebermessage(membermessage)
+	article(data-ks-editable=editable(user, { list: 'Post', id: post.id })).media
+		.media-left
+			a(href='/blog/post/' + post.key)
+				if membermessage.image.exists
+					img(src=membermessage._.image.fit(80,80)).media-object
+				else
+					img(src="http://placehold.it/80x80").media-object
+		.media-body
+			h3.media-heading
+				a(href='/blog/post/' + membermessage.key)= membermessage.name
+			if membermessage.publishedDate || membermessage.author
+				p.text-muted.text-small
+					if membermessage.publishedDate
+						time= membermessage._.publishedDate.format('MMMM Do, YYYY')
+						|  
+					if membermessage.author
+						span by #{membermessage.author.name.full}
+			!= membermessage.content.brief
